@@ -12,16 +12,21 @@ def startup():
     gb = 1024**3
     user = getpass.getuser()
     print("********************")
-    print(f"Machine: {system} {version}\nUser: {user}\nDate: {datetime.now().strftime('%Y-%m-%d')}")
+    print(f"Machine: {system} {version}\nUser: {user}\nDate: {datetime.now().strftime('%Y-%m-%d (%H-%M-%S)')}")
     print("********************")
     print("***WARNING*** This program will create practice log files on your machine!")
     print("Type 'q' to quit at anytime.\n")
     choice = input("Scan your partition to check available space? (y/n): ")
     if choice.lower() == "y":
         attempts = 4
-        while attempts >= 0:
+        while attempts >= 0:        
             partition = input("Which drive would you like to scan? (e.g., C, D)")
-            if partition:
+            if len(partition) != 1 or not partition.isalpha():
+                print("No input provided. Please enter a drive letter.")
+                continue
+            elif partition.lower() == "q":
+                sys.exit()
+            elif partition.isalpha():
                 try:
                     partition =  f"{partition.lower()}" + r":\\"
                     disk = psutil.disk_usage(partition)
@@ -31,7 +36,15 @@ def startup():
                     print(f"{e}\nInvalid partition, please try again.")
                     print(f"You have {attempts} attempts remaining.")
                 if attempts == 0:
-                    print("No attempts left. Exiting.")
+                    retry = input("Would you like to try again? (y/n): ")
+                    if retry.lower() == "y":
+                        attempts = 4
+                        continue
+                    elif retry.lower() == "q":
+                        sys.exit()
+                    else:
+                        sys.exit()
+                    return
                 attempts -= 1
     elif choice.lower() == "q":
         sys.exit()
