@@ -1,0 +1,46 @@
+# WARHING! This program will create practice log files on your machine
+import os
+import sys
+import psutil
+import getpass
+import platform
+from datetime import datetime
+
+def startup():
+    system = platform.system()
+    version = platform.release()
+    gb = 1024**3
+    user = getpass.getuser()
+    print("********************")
+    print(f"Machine: {system} {version}\nUser: {user}\nDate: {datetime.now().strftime('%Y-%m-%d')}")
+    print("********************")
+    print("***WARNING*** This program will create practice log files on your machine!")
+    print("Type 'q' to quit at anytime.\n")
+    choice = input("Scan your partition to check available space? (y/n): ")
+    if choice.lower() == "y":
+        attempts = 4
+        while attempts >= 0:
+            partition = input("Which drive would you like to scan? (e.g., C, D)")
+            if partition:
+                try:
+                    partition =  f"{partition.lower()}" + r":\\"
+                    disk = psutil.disk_usage(partition)
+                    print(f"Disk: {disk.total/gb:.2f} GB\nUsed: {disk.used/gb:.2f} GB\nFree: {disk.free/gb:.2f} GB\nPercent: {disk.percent}%")
+                    return
+                except Exception as e:
+                    print(f"{e}\nInvalid partition, please try again.")
+                    print(f"You have {attempts} attempts remaining.")
+                if attempts == 0:
+                    print("No attempts left. Exiting.")
+                attempts -= 1
+    elif choice.lower() == "q":
+        sys.exit()
+    else:
+        return
+
+def main():
+    startup()
+
+if __name__ == "__main__":
+    main()
+
