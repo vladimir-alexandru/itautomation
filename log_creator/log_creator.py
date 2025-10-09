@@ -1,6 +1,7 @@
 # WARHING! This program will create practice log files on your machine
 import os
 import sys
+import time
 import psutil
 import getpass
 import platform
@@ -51,8 +52,39 @@ def startup():
     else:
         return
 
+def path_verification():
+    tries = 4
+    while tries >= 0:
+        path = input("Please provide the path.")
+        path_confirm = input(f"Confirm {path}? (y/n): ")
+        if tries == 0:
+            print("No more tries left. Exiting")
+            sys.exit()
+        elif path_confirm.lower() == "y":
+            try:
+                os.mkdir(path)
+                print("Folder created at path: {}".format(path))
+                for i in range(3, 0, -1):
+                    if i == 3:
+                        print(f"{i}... Initializing the file forge...")
+                    elif i == 2:
+                        print(f"{i}... Summong 100 log files from the void.")
+                    elif i == 1:
+                        print(f"{i}... Last disk spin! Creating logs now!")
+                    time.sleep(1)
+                return
+            except:
+                print("Folder already exists")    
+                print(f"Try again, {tries} tries remaining.")          
+        elif path_confirm.lower() == "n":
+            print(f"Try again, {tries} tries remaining.")          
+        elif path_confirm.lower() == "q":
+            sys.exit()
+        tries -= 1
+
 def main():
     startup()
+    path_verification()
 
 if __name__ == "__main__":
     main()
