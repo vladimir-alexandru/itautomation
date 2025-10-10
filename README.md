@@ -7,8 +7,7 @@ Python and IT automation scripts for system administration and cybersecurity tas
 
 ### Script: `folder_summary_v1.py`  
 
-**Purpose:**  
-Summarizes the contents of a specified folder, counting files and directories.  
+**Purpose:** Summarizes the contents of a specified folder, counting files and directories.  
 
 **Key Features:**  
 - Validates user input and handles invalid paths gracefully.  
@@ -25,8 +24,7 @@ Uses built-in Python modules (`os`, `sys`, `platform`, `datetime`).
 
 ### Script: `log_creator.py`
 
-**Purpose:**
-Creates practice log files on the local machine for testing and automation exercises.
+**Purpose:** Creates practice log files on the local machine for testing and automation exercises.
 
 **Key Features:**
 - Displays basic system info (OS, version, user).
@@ -44,8 +42,7 @@ Uses built-in Python modules (`os`, `platform`, `getpass`) and `psutil` for disk
 
 ### Script: `log_archiver.py` COMING SOON!
 
-**Purpose:**
-Automates the management of system log files by moving, renaming, and cleaning up old logs in designated directories.
+**Purpose:** Automates the management of system log files by moving, renaming, and cleaning up old logs in designated directories.
 
 **Key Features:**
 - Scans a source folder for .log files.
