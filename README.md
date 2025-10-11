@@ -5,7 +5,7 @@ Python and IT automation scripts for system administration and cybersecurity tas
 
 ---
 
-### Script: `folder_summary_v1.py`  
+### Script: `folder_summary_v1.0.py`  
 
 **Purpose:** Summarizes the contents of a specified folder, counting files and directories.  
 
@@ -22,21 +22,27 @@ Uses built-in Python modules (`os`, `sys`, `platform`, `datetime`).
 
 ---
 
-### Script: `log_creator.py`
+### Script: `log_creator_Win_v1.0.py` (Windows-only Version)
 
-**Purpose:** Creates practice log files on the local machine for testing and automation exercises.
+**Purpose:** Generates practice log files on your local machine for testing, parsing, or automation exercises
 
 **Key Features:**
-- Displays basic system info (OS, version, user).
-- Prompts the user to scan a drive to check available space before creating files.
-- Uses retry logic for invalid partition input.
-- Gracefully exits if the user declines or exceeds allowed attempts.
+- Shows system details (OS, version, username, date).
+- Optionally scans a selected drive to display free and used disk space.
+- Creates a new folder and generates multiple randomized log files (10 by default, 100 lines each).
+- Includes input validation, retry limits, and graceful exit options (q to quit anytime).
+- Provides countdown messages and clear on-screen feedback during each stage.
 
 **Usage:**
-Run the script and follow prompts to select a partition. The program reports disk usage and exits safely after validation.
+Follow the interactive prompts to:
+1. (Optional) Scan a partition to view available space.
+2. Choose where to create your test logs.
+3. Watch as the program builds a folder of randomly generated log files.
+
+You can repeat file generation or quit safely at any prompt.
 
 **Tech:**
-Uses built-in Python modules (`os`, `platform`, `getpass`) and `psutil` for disk information.
+Built with standard Python libraries (`os`, `sys`, `time`, `random`, `getpass`, `platform`, `datetime`) and `psutil` for drive statistics.
 
 ---
 
