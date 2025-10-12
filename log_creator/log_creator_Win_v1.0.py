@@ -70,7 +70,7 @@ def path_verification():
                     if i == 3:
                         print(f"{i}... Initializing the file forge...")
                     elif i == 2:
-                        print(f"{i}... Summoning 100 log files from the void.")
+                        print(f"{i}... Summoning 10 log files from the void.")
                     elif i == 1:
                         print(f"{i}... Last disk spin! Creating logs now!")
                     time.sleep(1)
