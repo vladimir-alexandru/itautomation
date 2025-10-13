@@ -46,15 +46,20 @@ Built with standard Python libraries (`os`, `sys`, `time`, `random`, `getpass`, 
 
 ---
 
-### Script: `password_auditor_v1.0.py` (Work in progress)
+### Script: `password_auditor_v1.0.py` (Windows & Linux)
 
-**Purpose:** Audits user-entered passwords for basic strength indicators and provides simple feedback.
+**Purpose:** Evaluates password strength based on core security criteria and provides instant feedback in a command-line interface.
 
 **Key Features:**
-- Interactive CLI with user confirmation and countdown exit.
+- Interactive startup prompt with safe exit and countdown.
+- Secure password input (hidden using getpass).
+- Checks for uppercase, lowercase, digits, special characters, and minimum length (12).
+- Displays individual pass/fail messages for each requirement.
+- Calculates overall password strength: Weak, Strong, or Excellent.
+- Ability to test multiple passwords in a single session. (Optional)
 
 **Usage:**
-Run the script, confirm you want to proceed, and enter a password when prompted.
+Run the script, confirm when prompted, and enter a password to audit. After evaluation, you can choose to test another password or exit safely.
 
 **Tech:**
-Uses built-in Python modules (`time`, `sys`, `getpass`).
+Built entirely with standard Python libraries (`time`, `sys`, `getpass`).
