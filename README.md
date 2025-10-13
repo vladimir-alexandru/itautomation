@@ -35,7 +35,7 @@ Uses built-in Python modules (`os`, `sys`, `platform`, `datetime`).
 
 **Usage:**
 Follow the interactive prompts to:
-1. Scan a partition to view available space. (Optional)
+1. Scan a partition to view available space (Optional).
 2. Choose where to create your test logs.
 3. Watch as the program builds a folder of randomly generated log files.
 
@@ -59,7 +59,29 @@ Built with standard Python libraries (`os`, `sys`, `time`, `random`, `getpass`, 
 - Ability to test multiple passwords in a single session. (Optional)
 
 **Usage:**
-Run the script, confirm when prompted, and enter a password to audit. After evaluation, you can choose to test another password or exit safely.
+Run the script, confirm when prompted, and enter a password to audit. 
+After evaluation, you can choose to test another password or exit safely.
 
 **Tech:**
 Built entirely with standard Python libraries (`time`, `sys`, `getpass`).
+
+---
+
+### Script: `hash_guard_v1.0.py` (Windows & Linux)
+
+**Purpose:** Scans a chosen folder, computes SHA-256 hashes for all files, and outputs a report for future integrity verification.
+
+**Key Features:**
+- Interactive startup with OS/user info and safe exit option (q).
+- Validates path input (Current version blocks access to root/system directories for safety).
+- Reads all files in binary mode and generates SHA-256 hashes.
+- Saves results in a timestamped hash_report_YYYY-MM-DD_HHh-MMm-SSs.txt.
+- Displays total files processed and total runtime.
+- Continuous session with the ability to rerun multiple scans.
+
+**Usage:**
+Run the script, enter a valid folder path, and wait while it hashes each file.
+After completion, view or compare the generated report to check for tampering or data integrity changes.
+
+**Tech:**
+Built entirely with standard Python libraries (`os`, `sys`, `hashlib`, `time`, `platform`, `getpass`, `datetime`).
