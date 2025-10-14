@@ -85,3 +85,25 @@ After completion, view or compare the generated report to check for tampering or
 
 **Tech:**
 Built entirely with standard Python libraries (`os`, `sys`, `hashlib`, `time`, `platform`, `getpass`, `datetime`).
+
+---
+
+### Script: `log_auditor_v1.0.py` (Windows & Linux)
+
+**Purpose:** Scans and filters log files by severity level, helping users quickly identify and extract relevant log entries.
+
+**Key Features:**
+- Interactive command-line interface with safe quit options.
+- Validates folder paths before parsing.
+- Supports multiple log severity levels: INFO, WARN, ERROR, DEBUG, NOTICE, and CRITICAL.
+- Reads all files in a selected folder (skipping subfolders).
+- Collects and displays lines matching the chosen severity level.
+- Export results to a timestamped text report (optional).
+
+**Usage:**
+Run the script, provide the folder path containing your logs, and select a log severity level to audit.
+After processing, you can export the filtered results as a report or check another folder.
+You can try it out on the sample logs provided in the folder to see how it works.
+
+**Tech:**
+Developed using standard Python libraries (`os`, `sys`, `datetime`).
