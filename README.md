@@ -1,11 +1,47 @@
 # Repo: /vladimir-alexandru/itautomation  
 
 **Description:**  
-Python and IT automation scripts for system administration and cybersecurity tasks.
+This repository documents my progression as I build (or attempt to build) practical sysadmin and cybersecurity scripts.
+Version 1.0 scripts are minimal working skeletons; later versions will represent adaptations, improvements, or new concepts built on top of them.
+I used AI only for minor troubleshooting, all scripts are written by hand.
+
+**Executable Files:**  
+All `.exe` files in this repository are compiled directly from the corresponding `.py` source files using `PyInstaller`.
+They are provided purely for convenience, allowing users without Python installed to run the scripts easily.
+All executables are generated locally from the code in this repository, no external or unsafe binaries are used.
+
+**Root Layout:**
+```
+│
+├── README.md → Overview, versioning philosophy, script index
+│
+├── log_auditor/ → Each script in its own folder
+│ ├── log_auditor_v1.0.py
+│ ├── log_auditor_v1.0.exe
+│ ├── sample_logs/ → Folder with sample files if the script needs test data (e.g., logs to audit)
+│ └── v1.0/ → Archive of previous versions (when updated)
+│
+├── log_creator/
+│ ├── log_creator_Win_v1.0.py
+│ ├── log_creator_Win_v1.0.exe
+│ └── v1.0/
+│
+└── (and so on for each new script)
+```
+
+## Script Index
+
+| Script           | Description               | OS        | Version| Folder                                  |
+|------------------|---------------------------|-----------|--------|-----------------------------------------|
+| folder_summary   | Folder analyzer           | Win/Linux | v1.0   | [folder_summary/](./folder_summary)     |
+| log_creator_Win  | Practice log generator    | Windows   | v1.0   | [log_creator/](./log_creator)       |
+| password_auditor | Password strength checker | Win/Linux | v1.0   | [password_auditor/](./password_auditor) |
+| hash_guard       | File integrity hasher     | Win/Linux | v1.0   | [hash_guard/](./hash_guard)             |
+| log_auditor      | Log severity filter       | Win/Linux | v1.0   | [log_auditor/](./log_auditor)           |
 
 ---
 
-### Script: `folder_summary_v1.0.py`  
+### Script: `folder_summary_v1.0.py` (Windows & Linux)  
 
 **Purpose:** Summarizes the contents of a specified folder, counting files and directories.  
 
@@ -22,7 +58,7 @@ Uses built-in Python modules (`os`, `sys`, `platform`, `datetime`).
 
 ---
 
-### Script: `log_creator_Win_v1.0.py` (Windows-only Version)
+### Script: `log_creator_Win_v1.0.py` (Windows)
 
 **Purpose:** Generates practice log files on your local machine for testing, parsing, or automation exercises
 
