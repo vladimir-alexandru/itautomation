@@ -34,10 +34,11 @@ All executables are generated locally from the code in this repository, no exter
 | Script           | Description               | OS        | Version| Folder                                  |
 |------------------|---------------------------|-----------|--------|-----------------------------------------|
 | folder_summary   | Folder analyzer           | Win/Linux | v1.0   | [folder_summary/](./folder_summary)     |
-| log_creator_Win  | Practice log generator    | Windows   | v1.0   | [log_creator/](./log_creator)       |
+| log_creator_Win  | Practice log generator    | Windows   | v1.0   | [log_creator/](./log_creator)           |
 | password_auditor | Password strength checker | Win/Linux | v1.0   | [password_auditor/](./password_auditor) |
 | hash_guard       | File integrity hasher     | Win/Linux | v1.0   | [hash_guard/](./hash_guard)             |
 | log_auditor      | Log severity filter       | Win/Linux | v1.0   | [log_auditor/](./log_auditor)           |
+| session_tracker  | Tracks active user        | Win/Linux | v1.0   | [session_tracker/](./session_tracker)   |
 
 ---
 
@@ -143,3 +144,21 @@ You can try it out on the sample logs provided in the folder to see how it works
 
 **Tech:**
 Developed using standard Python libraries (`os`, `sys`, `datetime`).
+
+---
+
+### Script: `session_tracker_v1.0.py` (Windows & Linux)
+
+**Purpose:** Tracks and logs active user sessions for Windows (query user) or Linux (who).
+
+**Key Features:**
+- Detects and runs the correct command based on the operating system.
+- Captures command output and extracts the active username.
+- Logs results, including timestamps, command used, username, and exit status, to a timestamped text file.
+- Handles errors gracefully with clear output and safe program termination.
+
+**Usage:**
+Run the script directly. It will detect the system, execute the appropriate session command, and create a log file named like session_tracker_YYYY-MM-DD_HH-MM-SS.txt.
+
+**Tech:**
+Uses built-in Python modules (`subprocess`, `platform`, `datetime`, `sys`, `re`).
