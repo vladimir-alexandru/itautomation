@@ -34,11 +34,12 @@ All executables are generated locally from the code in this repository, no exter
 | Script           | Description               | OS        | Version| Folder                                  |
 |------------------|---------------------------|-----------|--------|-----------------------------------------|
 | folder_summary   | Folder analyzer           | Win/Linux | v1.0   | [folder_summary/](./folder_summary)     |
-| log_creator_Win  | Practice log generator    | Windows   | v1.0   | [log_creator/](./log_creator)           |
+| log_creator      | Practice log generator    | Windows   | v1.0   | [log_creator/](./log_creator)           |
 | password_auditor | Password strength checker | Win/Linux | v1.0   | [password_auditor/](./password_auditor) |
 | hash_guard       | File integrity hasher     | Win/Linux | v1.0   | [hash_guard/](./hash_guard)             |
 | log_auditor      | Log severity filter       | Win/Linux | v1.0   | [log_auditor/](./log_auditor)           |
 | session_tracker  | Tracks active user        | Win/Linux | v1.0   | [session_tracker/](./session_tracker)   |
+| sys_report       | Displays key info         | Windows   | v1.0   | [sys_report/](./sys_report)             |
 
 ---
 
@@ -162,3 +163,20 @@ Run the script directly. It will detect the system, execute the appropriate sess
 
 **Tech:**
 Uses built-in Python modules (`subprocess`, `platform`, `datetime`, `sys`, `re`).
+
+---
+
+### Script: `sys_report_v1.0.py` (Windows)
+
+**Purpose:** Displays essential system information in a clean, minimal format.
+
+**Key Features:**
+- Runs the Windows systeminfo command and extracts key fields.
+- Shows hostname, OS name/version, system type, manufacturer, model, BIOS, domain, and memory stats.
+- Provides a compact summary for quick checks or documentation.
+
+**Usage:**
+Run the script directly. It prints the selected system info neatly in the console.
+
+**Tech:**
+Uses built-in Python modules (`subprocess`).
