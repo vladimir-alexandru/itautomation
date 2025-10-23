@@ -1,8 +1,8 @@
 import subprocess
 
-def sys_check():
+def sys_overview():
     systeminfo = subprocess.run("systeminfo", capture_output=True, check=False, text=True, timeout=5)
-    print("==============================")
+    print("===SYSTEM OVERVIEW===========================")
     for line in systeminfo.stdout.splitlines():
         if "Host Name:" in line:
             parts = line.split(":")
@@ -27,13 +27,35 @@ def sys_check():
             print(f"{parts[0]}: {parts[1].strip()}")
         if "Domain:" in line:
             parts = line.split(":")
-            print(f"{parts[0]}: {parts[1].strip()}")
+            print(f"{parts[0]}: {parts[1].strip().lower()}")
         if "Total Physical Memory:" in line:
             parts = line.split(":")
             print(f"{parts[0]}: {parts[1].strip()}")
         if "Available Physical Memory:" in line:
             parts = line.split(":")
             print(f"{parts[0]}: {parts[1].strip()}")
+
+def disk_overview():
+    result = subprocess.run("wmic logicaldisk get caption,freespace,size", capture_output=True, text=True, check=False, timeout=5)
+    print("===DISK USAGE===========================")
+    for d in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+        if f"{d}:" in result.stdout:
+            for line in result.stdout.splitlines():
+                if f"{d}:" in line:
+                    parts = line.split()
+                    if len(parts) >= 3:
+                        drive, free, size = parts[0], parts[1], parts[2]
+                        try:
+                            free_gb = int(free) / (1024**3)
+                            size_gb = int(size) / (1024**3)
+                            print(f"{drive} {free_gb:.2f} GB / {size_gb:.2f} GB")
+                        except (ValueError, ZeroDivisionError):
+                            pass
     print("==============================")
 
-sys_check()
+def main():
+    sys_overview()
+    disk_overview()
+
+if __name__ == "__main__":
+    main()
